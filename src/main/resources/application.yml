@@ -1,0 +1,18 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: leaderboard-service
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/burak
+    username: burak
+    password: burak
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
