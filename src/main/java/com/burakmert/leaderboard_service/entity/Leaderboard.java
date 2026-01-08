@@ -5,8 +5,10 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.Instant;
+
 @Entity
-@Table(name = "tournaments")
+@Table(name = "leaderboards")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -29,8 +31,8 @@ public class Leaderboard {
     private int score;
 
     @CreationTimestamp
-    private long createdAt;
+    private Instant createdAt;
     @UpdateTimestamp
-    private long updatedAt;
+    private Instant updatedAt;
 
 }

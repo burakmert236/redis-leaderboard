@@ -5,6 +5,8 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.Instant;
+
 @Entity
 @Table(name = "users")
 @Getter
@@ -16,18 +18,16 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     @Column(nullable = false, unique = true)
     private String username;
 
     private int level;
 
-    private String coin;
-
     @CreationTimestamp
-    private long createdAt;
+    private Instant createdAt;
     @UpdateTimestamp
-    private long updatedAt;
+    private Instant updatedAt;
 
 }
