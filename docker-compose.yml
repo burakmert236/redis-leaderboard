@@ -16,8 +16,6 @@ services:
       interval: 5s
       timeout: 3s
       retries: 5
-    networks:
-      - leaderboard-network
 
   # Databases
   postgres:
@@ -54,10 +52,6 @@ services:
       SPRING_PROFILES_ACTIVE: docker
     ports:
       - "8092:8092"
-
-networks:
-  leaderboard-network:
-    driver: bridge
 
 volumes:
   redis_data:

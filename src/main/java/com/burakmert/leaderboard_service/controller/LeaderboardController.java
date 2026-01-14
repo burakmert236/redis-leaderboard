@@ -2,6 +2,7 @@ package com.burakmert.leaderboard_service.controller;
 
 import com.burakmert.leaderboard_service.dto.leaderboard.CreateLeaderboardRequestDto;
 import com.burakmert.leaderboard_service.dto.leaderboard.LeaderboardResponse;
+import com.burakmert.leaderboard_service.dto.leaderboard.RedisLeaderboardPage;
 import com.burakmert.leaderboard_service.dto.tournament.CreateTournamentRequestDto;
 import com.burakmert.leaderboard_service.entity.Leaderboard;
 import com.burakmert.leaderboard_service.entity.Tournament;
@@ -35,5 +36,11 @@ public class LeaderboardController {
                 .score(leaderboard.getScore())
                 .build();
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/global")
+    public ResponseEntity<RedisLeaderboardPage> GetGlobalLeaderboard() {
+        RedisLeaderboardPage leaderboard = leaderboardService.GetGlobalLeaderboard();
+        return ResponseEntity.ok(leaderboard);
     }
 }
